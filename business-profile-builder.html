@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en-AU">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Build and export a standalone business-profile.md file for grants, public profiles, noticeboards and partner conversations.">
+    <title>Build business-profile.md | Straddie Content Assets Kit</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Nunito+Sans:wght@700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <nav class="nav" aria-label="Main navigation">
+        <a class="brand-mark" href="index.html" aria-label="Straddie Content Assets Kit home"><span>Straddie</span><span>Assets</span></a>
+        <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+        <div class="nav-links">
+          <a href="index.html">Guide</a>
+          <a aria-current="page" href="business-profile-builder.html">Business</a>
+          <a href="asset-list-builder.html">My assets</a>
+          <a href="shared-assets-builder.html">Team assets</a>
+          <a href="wishlist-builder.html">Wish list</a>
+          <a href="upgrade-roadmap-builder.html">Roadmap</a>
+          <a href="source-briefs.html">Briefs</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="page-hero">
+        <p class="eyebrow">Applicant facts</p>
+        <h1>Create business-profile.md</h1>
+        <p class="hero-lede">A standalone public/private business profile for grants, partner conversations, noticeboard pathways and local media work.</p>
+      </section>
+
+      <section class="section builder-layout">
+        <form class="builder-form" data-builder-form data-builder-kind="business">
+          <fieldset>
+            <legend>Identity</legend>
+            <label>Public name <input name="public_name" placeholder="Trading name, project name, club name or public identity"></label>
+            <label>Legal name <input name="legal_name" placeholder="Legal entity name, auspicing body or leave blank if not ready"></label>
+            <label>ABN / ACN <input name="abn" placeholder="ABN, ACN, incorporation number, auspice reference or not yet"></label>
+            <label>Entity type
+              <select name="entity_type">
+                <option value="">Select closest fit</option>
+                <option value="sole_trader">Sole trader</option>
+                <option value="company">Company</option>
+                <option value="incorporated_association">Incorporated association</option>
+                <option value="charity_or_not_for_profit">Charity or not-for-profit</option>
+                <option value="auspiced_project">Auspiced project</option>
+                <option value="informal_group">Informal community group</option>
+                <option value="artist_practice">Artist practice</option>
+                <option value="club_or_committee">Club or committee</option>
+                <option value="other">Other / not sure yet</option>
+              </select>
+            </label>
+            <label>Contact person <input name="contact_person" placeholder="Public or grant contact person"></label>
+            <label>Town / service area <input name="location" placeholder="Amity, Dunwich, Point Lookout, island-wide, Redlands, online"></label>
+            <label>Website / public links <textarea name="links" placeholder="One per line. Website, social links, public profile, noticeboard, grant profile kit"></textarea></label>
+          </fieldset>
+
+          <fieldset>
+            <legend>What the applicant does</legend>
+            <div class="field-group">
+              <p>Useful applicant roles</p>
+              <div class="option-grid compact" data-checkbox-group="business_roles"></div>
+            </div>
+            <label>Public summary <textarea name="summary" placeholder="Short plain-English summary of who this applicant is and who they help."></textarea></label>
+            <label>Community benefit <textarea name="benefit" placeholder="Who benefits, how they benefit, and why this matters locally."></textarea></label>
+            <label>Experience / past work <textarea name="experience" placeholder="Past projects, events, services, partnerships, delivery evidence or useful lived experience."></textarea></label>
+            <label>Useful evidence <textarea name="evidence" placeholder="Photos, testimonials, invoices, event pages, public posts, references, reports, attendance, sales, previous grants"></textarea></label>
+          </fieldset>
+
+          <fieldset>
+            <legend>Grant and public-readiness checks</legend>
+            <label>Insurance / compliance <textarea name="compliance" placeholder="Public liability, worker safety, permits, food safety, child safety, cultural permissions, privacy, data handling."></textarea></label>
+            <label>Grant restrictions <textarea name="restrictions" placeholder="Anything the applicant cannot or should not claim, spend on, promise, publish, or represent."></textarea></label>
+            <label>Public update rules <textarea name="public_updates" placeholder="What can safely go to public pages, public_noticeboard.md, social posts or media updates? Who approves?"></textarea></label>
+            <label>Private notes <textarea name="private_notes" placeholder="Keep out of public pages unless deliberately approved: finances, private contacts, locations, sensitive context, internal worries."></textarea></label>
+            <label>Open questions <textarea name="open_questions" placeholder="What does a human still need to check before using this for a grant, public page or partner ask?"></textarea></label>
+          </fieldset>
+
+          <div class="builder-actions">
+            <button class="button primary" type="submit">Update Markdown</button>
+            <button class="button secondary" type="button" data-copy-markdown>Copy Markdown</button>
+            <button class="button secondary" type="button" data-download-markdown>Download business-profile.md</button>
+            <button class="button danger" type="button" data-clear-form>Clear</button>
+          </div>
+          <p class="status" data-status aria-live="polite"></p>
+        </form>
+        <aside class="output-panel">
+          <label for="markdownOutput">Generated Markdown</label>
+          <textarea id="markdownOutput" class="markdown-output" spellcheck="false" data-markdown-output></textarea>
+        </aside>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Use business-profile.md as applicant truth. Keep private notes private unless they are deliberately approved for public use.</p>
+    </footer>
+    <script src="app.js"></script>
+    <script src="builder.js"></script>
+  </body>
+</html>

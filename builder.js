@@ -54,10 +54,27 @@
       ["ai_assistants", "AI assistants"],
       ["archive", "Archive"],
       ["training", "Training"]
+    ],
+    business_roles: [
+      ["grant_applicant", "Grant applicant"],
+      ["local_business", "Local business"],
+      ["artist_or_maker", "Artist / maker"],
+      ["event_host", "Event host"],
+      ["community_group", "Community group"],
+      ["club_or_sport", "Club / sport"],
+      ["noticeboard_publisher", "Noticeboard publisher"],
+      ["media_partner", "Media partner"],
+      ["training_provider", "Training provider"],
+      ["auspice_or_sponsor", "Auspice / sponsor"]
     ]
   };
 
   const builders = {
+    business: {
+      storageKey: "straddieBusinessProfile",
+      fileName: "business-profile.md",
+      build: buildBusinessMarkdown
+    },
     asset: {
       storageKey: "straddieContentAssetList",
       fileName: "asset-list.md",
@@ -212,6 +229,7 @@
       "",
       "- Profile starter: https://auraofintelligence.github.io/sbt_profile_starter/",
       "- Aura builder: https://auraofintelligence.github.io/sbt_aura_builder/",
+      "- Business profile builder: https://auraofintelligence.github.io/straddie-content-assets-kit/business-profile-builder.html",
       "- Public noticeboard builder: https://auraofintelligence.github.io/straddie-noticeboard-network/public-noticeboard-builder.html",
       "- Grant profile kit: https://auraofintelligence.github.io/stradbroke-grants-lab/profile-kit.html",
       "- Events and media: https://auraofintelligence.github.io/strange-but-true/events-media.html",
@@ -226,8 +244,51 @@
       "",
       "- Public-safe capability can be shared after human review.",
       "- Private contacts, addresses, logins, expensive gear locations, protected places, cultural permissions, payment details and safety-sensitive information should stay out of public files.",
-      "- A selected asset is not consent to film, publish, borrow, sell, sponsor or access anything.",
+      "- A listed profile, role or asset is not consent to film, publish, borrow, sell, sponsor or access anything.",
       ""
+    ].join("\n");
+  }
+
+  function buildBusinessMarkdown(state) {
+    const publicName = state.public_name || "Example Applicant";
+    const roles = labelsFor("business_roles", state.business_roles || []);
+    return [
+      "---",
+      "schema: business_profile.v0",
+      "status: draft_for_human_review",
+      "public_name: " + yamlScalar(publicName),
+      "legal_name: " + yamlScalar(state.legal_name),
+      "abn_acn: " + yamlScalar(state.abn),
+      "entity_type: " + yamlScalar(state.entity_type || "not_sure_yet"),
+      "contact_person: " + yamlScalar(state.contact_person),
+      "location_or_service_area: " + yamlScalar(state.location),
+      "prepared_date: " + yamlScalar(today()),
+      "applicant_roles:",
+      yamlList(roles, "  "),
+      "---",
+      "",
+      "# Business / Organisation Profile",
+      "",
+      "Use this file to give an AI agent, grant writer, partner or public-profile builder the basic truth before drafting.",
+      "",
+      section("Public Name", publicName),
+      section("Legal Name", state.legal_name || "TODO"),
+      section("ABN / ACN", state.abn || "TODO"),
+      section("Entity Type", state.entity_type || "TODO"),
+      section("Contact Person", state.contact_person || "TODO"),
+      section("Location", state.location || "TODO"),
+      section("Website / Social Links", bulletList(lines(state.links))),
+      section("Public Summary", state.summary || "TODO"),
+      section("Community Benefit", state.benefit || "TODO"),
+      section("Experience / Past Work", state.experience || "TODO"),
+      section("Useful Evidence", bulletList(lines(state.evidence))),
+      section("Insurance / Compliance", state.compliance || "TODO"),
+      section("Grant Restrictions", state.restrictions || "TODO"),
+      section("Public Update Rules", state.public_updates || "TODO"),
+      section("Private Notes", state.private_notes || "Keep this section out of public pages unless deliberately approved."),
+      section("Open Questions", bulletList(lines(state.open_questions))),
+      publicBoundary(),
+      linkedFamily()
     ].join("\n");
   }
 
