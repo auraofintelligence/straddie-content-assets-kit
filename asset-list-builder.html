@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en-AU">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Build and export an asset-list.md file for local content creation.">
+    <title>Build asset-list.md | Straddie Content Assets Kit</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Nunito+Sans:wght@700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <nav class="nav" aria-label="Main navigation">
+        <a class="brand-mark" href="index.html" aria-label="Straddie Content Assets Kit home"><span>Straddie</span><span>Assets</span></a>
+        <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+        <div class="nav-links">
+          <a href="index.html">Guide</a>
+          <a aria-current="page" href="asset-list-builder.html">My assets</a>
+          <a href="shared-assets-builder.html">Team assets</a>
+          <a href="wishlist-builder.html">Wish list</a>
+          <a href="upgrade-roadmap-builder.html">Roadmap</a>
+          <a href="source-briefs.html">Briefs</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="page-hero">
+        <p class="eyebrow">My kit</p>
+        <h1>Create asset-list.md</h1>
+        <p class="hero-lede">Map the gear, software, skills and file habits you can already use for local content creation.</p>
+      </section>
+
+      <section class="section builder-layout">
+        <form class="builder-form" data-builder-form data-builder-kind="asset">
+          <fieldset>
+            <legend>Public doorway</legend>
+            <label>Person, group or project name <input name="owner_name" placeholder="e.g. Luke / Strange but True / island film club"></label>
+            <label>Place or service area <input name="place" placeholder="Amity, Dunwich, Point Lookout, island-wide, online"></label>
+            <label>Public profile link <input name="profile_link" placeholder="profile.md, website or public page"></label>
+            <label>Current content purpose <textarea name="purpose" placeholder="What kind of content are you trying to make right now?"></textarea></label>
+          </fieldset>
+
+          <fieldset>
+            <legend>Assets already available</legend>
+            <div class="field-group">
+              <p>Useful categories</p>
+              <div class="option-grid compact" data-checkbox-group="asset_categories"></div>
+            </div>
+            <label>Gear and tools already available <textarea name="owned_items" placeholder="One per line. Example: iPhone 15 | good | main camera for vertical clips"></textarea></label>
+            <label>Software, accounts and workflows <textarea name="software" placeholder="Editing apps, cloud folders, storage habits, caption tools, booking forms, templates"></textarea></label>
+            <label>Skills and helpers already available <textarea name="skills" placeholder="Filming, editing, interviewing, setup, pack-down, transport, writing, local knowledge"></textarea></label>
+          </fieldset>
+
+          <fieldset>
+            <legend>Boundaries and gaps</legend>
+            <label>Access boundaries <textarea name="access_boundaries" placeholder="What is private, fragile, borrowed, weather-limited, permission-needed, expensive or not always available?"></textarea></label>
+            <label>Known gaps <textarea name="gaps" placeholder="What slows the work down or makes quality unreliable?"></textarea></label>
+            <label>Where files live <textarea name="file_locations" placeholder="Folder names, public-safe repo links, Drive folders, SSD labels, or 'not sorted yet'"></textarea></label>
+            <label>Questions to ask before sharing publicly <textarea name="open_questions" placeholder="What needs a human answer before this becomes public or team-shared?"></textarea></label>
+          </fieldset>
+
+          <div class="builder-actions">
+            <button class="button primary" type="submit">Update Markdown</button>
+            <button class="button secondary" type="button" data-copy-markdown>Copy Markdown</button>
+            <button class="button secondary" type="button" data-download-markdown>Download asset-list.md</button>
+            <button class="button danger" type="button" data-clear-form>Clear</button>
+          </div>
+          <p class="status" data-status aria-live="polite"></p>
+        </form>
+        <aside class="output-panel">
+          <label for="markdownOutput">Generated Markdown</label>
+          <textarea id="markdownOutput" class="markdown-output" spellcheck="false" data-markdown-output></textarea>
+        </aside>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Review before publishing. Private addresses, account access, protected places and expensive equipment locations should stay out of public files.</p>
+    </footer>
+    <script src="app.js"></script>
+    <script src="builder.js"></script>
+  </body>
+</html>

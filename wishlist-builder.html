@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en-AU">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Build and export an equipment-wishlist.md file for content creation upgrades, sponsorship asks and grant planning.">
+    <title>Build equipment-wishlist.md | Straddie Content Assets Kit</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Nunito+Sans:wght@700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <nav class="nav" aria-label="Main navigation">
+        <a class="brand-mark" href="index.html" aria-label="Straddie Content Assets Kit home"><span>Straddie</span><span>Assets</span></a>
+        <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+        <div class="nav-links">
+          <a href="index.html">Guide</a>
+          <a href="asset-list-builder.html">My assets</a>
+          <a href="shared-assets-builder.html">Team assets</a>
+          <a aria-current="page" href="wishlist-builder.html">Wish list</a>
+          <a href="upgrade-roadmap-builder.html">Roadmap</a>
+          <a href="source-briefs.html">Briefs</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="page-hero">
+        <p class="eyebrow">Needs and asks</p>
+        <h1>Create equipment-wishlist.md</h1>
+        <p class="hero-lede">Sort upgrades into useful next buys, sponsorship asks, grant items, in-kind support and things to delay.</p>
+      </section>
+
+      <section class="section builder-layout">
+        <form class="builder-form" data-builder-form data-builder-kind="wishlist">
+          <fieldset>
+            <legend>Wishlist frame</legend>
+            <label>Project or group name <input name="project_name" placeholder="e.g. Outdoor cinema pilot / Screen club starter kit"></label>
+            <label>Near-term goal <input name="goal" placeholder="What would better equipment make possible?"></label>
+            <label>Timeframe <input name="timeframe" placeholder="Now, next 3 months, before festival season, 2026"></label>
+            <label>Budget style
+              <select name="budget_style">
+                <option value="">Not sure yet</option>
+                <option value="use_existing_cash">Use existing cash carefully</option>
+                <option value="borrow_or_in_kind_first">Borrow or in-kind first</option>
+                <option value="sponsorship_ready">Sponsorship ready</option>
+                <option value="grant_ready">Grant ready</option>
+                <option value="wait_for_team">Wait until team exists</option>
+              </select>
+            </label>
+          </fieldset>
+
+          <fieldset>
+            <legend>Items</legend>
+            <div class="field-group">
+              <p>Upgrade categories</p>
+              <div class="option-grid compact" data-checkbox-group="wishlist_categories"></div>
+            </div>
+            <label>Requested items <textarea name="wish_items" placeholder="One per line. Example: Wireless lapel mic pair | cleaner interviews | $250-$450 | high"></textarea></label>
+            <label>Borrow, hire or in-kind options <textarea name="borrow_options" placeholder="Who might lend, sponsor, discount, store, transport or maintain something?"></textarea></label>
+            <label>Do not buy yet <textarea name="delay_items" placeholder="Tempting gear that should wait until skill, demand or team capacity catches up"></textarea></label>
+          </fieldset>
+
+          <fieldset>
+            <legend>Reasoning</legend>
+            <label>Why these upgrades matter <textarea name="justification" placeholder="Connect each ask to better local stories, safer events, training, accessibility, grant evidence or shared use."></textarea></label>
+            <label>Who benefits <textarea name="beneficiaries" placeholder="Creators, clubs, Elders, young people, businesses, event organisers, visitors, local screens"></textarea></label>
+            <label>Links to grant/profile/public pages <textarea name="support_links" placeholder="Grant profile kit, profile.md, public_noticeboard.md, event page, quote links"></textarea></label>
+            <label>Open questions <textarea name="open_questions" placeholder="What prices, specs, approvals, storage, maintenance or training are still unknown?"></textarea></label>
+          </fieldset>
+
+          <div class="builder-actions">
+            <button class="button primary" type="submit">Update Markdown</button>
+            <button class="button secondary" type="button" data-copy-markdown>Copy Markdown</button>
+            <button class="button secondary" type="button" data-download-markdown>Download equipment-wishlist.md</button>
+            <button class="button danger" type="button" data-clear-form>Clear</button>
+          </div>
+          <p class="status" data-status aria-live="polite"></p>
+        </form>
+        <aside class="output-panel">
+          <label for="markdownOutput">Generated Markdown</label>
+          <textarea id="markdownOutput" class="markdown-output" spellcheck="false" data-markdown-output></textarea>
+        </aside>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Wish lists are planning tools. Check real prices, warranty, local support and training needs before spending grant or sponsor money.</p>
+    </footer>
+    <script src="app.js"></script>
+    <script src="builder.js"></script>
+  </body>
+</html>

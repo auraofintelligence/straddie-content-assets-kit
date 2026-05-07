@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en-AU">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Build and export a shared-assets.md file for team media equipment and shared local content creation.">
+    <title>Build shared-assets.md | Straddie Content Assets Kit</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Nunito+Sans:wght@700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <nav class="nav" aria-label="Main navigation">
+        <a class="brand-mark" href="index.html" aria-label="Straddie Content Assets Kit home"><span>Straddie</span><span>Assets</span></a>
+        <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+        <div class="nav-links">
+          <a href="index.html">Guide</a>
+          <a href="asset-list-builder.html">My assets</a>
+          <a aria-current="page" href="shared-assets-builder.html">Team assets</a>
+          <a href="wishlist-builder.html">Wish list</a>
+          <a href="upgrade-roadmap-builder.html">Roadmap</a>
+          <a href="source-briefs.html">Briefs</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="page-hero">
+        <p class="eyebrow">Team kit</p>
+        <h1>Create shared-assets.md</h1>
+        <p class="hero-lede">Turn scattered personal gear into a simple shared asset layer with care rules, roles and public-safe notes.</p>
+      </section>
+
+      <section class="section builder-layout">
+        <form class="builder-form" data-builder-form data-builder-kind="shared">
+          <fieldset>
+            <legend>Team layer</legend>
+            <label>Team, club or project name <input name="team_name" placeholder="e.g. Minjerribah Screen Club pilot team"></label>
+            <label>Coordinator or steward <input name="coordinator" placeholder="Who keeps the shared list sane?"></label>
+            <label>Public profile or noticeboard link <input name="public_link" placeholder="profile.md, public_noticeboard.md or project page"></label>
+            <label>Shared purpose <textarea name="shared_purpose" placeholder="What can the team create together that one person cannot do alone?"></textarea></label>
+          </fieldset>
+
+          <fieldset>
+            <legend>Shared assets</legend>
+            <div class="field-group">
+              <p>Shared use areas</p>
+              <div class="option-grid compact" data-checkbox-group="shared_use"></div>
+            </div>
+            <label>Shared gear list <textarea name="shared_items" placeholder="One per line. Example: Wireless mic kit | Luke | available by request | check batteries"></textarea></label>
+            <label>Shared spaces, screens or venues <textarea name="spaces" placeholder="Outdoor screen, meeting room, market table, editing desk, storage cabinet, ferry screens, venue screens"></textarea></label>
+            <label>Team roles <textarea name="roles" placeholder="Person or role | can help with | needs training / approval"></textarea></label>
+          </fieldset>
+
+          <fieldset>
+            <legend>Care and permission</legend>
+            <label>Borrowing or check-out rules <textarea name="borrowing_rules" placeholder="Who can borrow what, who approves, how it comes back, what gets logged"></textarea></label>
+            <label>Safety, insurance and power notes <textarea name="safety_notes" placeholder="Cables, weather, batteries, transport, public events, water, wind, trip hazards, insurance unknowns"></textarea></label>
+            <label>Private or permission-needed assets <textarea name="private_assets" placeholder="Anything that should stay private, trusted-only, or hidden from public pages"></textarea></label>
+            <label>Open questions <textarea name="open_questions" placeholder="What needs agreement before this is a real shared kit?"></textarea></label>
+          </fieldset>
+
+          <div class="builder-actions">
+            <button class="button primary" type="submit">Update Markdown</button>
+            <button class="button secondary" type="button" data-copy-markdown>Copy Markdown</button>
+            <button class="button secondary" type="button" data-download-markdown>Download shared-assets.md</button>
+            <button class="button danger" type="button" data-clear-form>Clear</button>
+          </div>
+          <p class="status" data-status aria-live="polite"></p>
+        </form>
+        <aside class="output-panel">
+          <label for="markdownOutput">Generated Markdown</label>
+          <textarea id="markdownOutput" class="markdown-output" spellcheck="false" data-markdown-output></textarea>
+        </aside>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Shared asset files should make trust easier, not expose private gear locations or pressure people into lending equipment.</p>
+    </footer>
+    <script src="app.js"></script>
+    <script src="builder.js"></script>
+  </body>
+</html>

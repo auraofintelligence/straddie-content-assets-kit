@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en-AU">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Build and export an upgrade-roadmap.md file for staged local content creation capability.">
+    <title>Build upgrade-roadmap.md | Straddie Content Assets Kit</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Nunito+Sans:wght@700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <nav class="nav" aria-label="Main navigation">
+        <a class="brand-mark" href="index.html" aria-label="Straddie Content Assets Kit home"><span>Straddie</span><span>Assets</span></a>
+        <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+        <div class="nav-links">
+          <a href="index.html">Guide</a>
+          <a href="asset-list-builder.html">My assets</a>
+          <a href="shared-assets-builder.html">Team assets</a>
+          <a href="wishlist-builder.html">Wish list</a>
+          <a aria-current="page" href="upgrade-roadmap-builder.html">Roadmap</a>
+          <a href="source-briefs.html">Briefs</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="page-hero">
+        <p class="eyebrow">Capability path</p>
+        <h1>Create upgrade-roadmap.md</h1>
+        <p class="hero-lede">Plan a staged path from current tools to team production to thoughtful state-of-the-art experiments.</p>
+      </section>
+
+      <section class="section builder-layout">
+        <form class="builder-form" data-builder-form data-builder-kind="roadmap">
+          <fieldset>
+            <legend>Roadmap frame</legend>
+            <label>Project or team name <input name="roadmap_name" placeholder="e.g. Straddie content creation pathway"></label>
+            <label>Starting point <textarea name="starting_point" placeholder="What is true today? Phones, one person, informal helpers, market stall, no storage, etc."></textarea></label>
+            <label>Target capability <textarea name="target_capability" placeholder="What should the system be able to do when it is working well?"></textarea></label>
+            <label>Main constraints <textarea name="constraints" placeholder="Money, bandwidth, storage, permissions, time, training, transport, weather, cultural review"></textarea></label>
+          </fieldset>
+
+          <fieldset>
+            <legend>Stages</legend>
+            <label>Stage 1 - use what I have <textarea name="stage_one" placeholder="Lowest-friction starter setup and habits"></textarea></label>
+            <label>Stage 2 - use what we have <textarea name="stage_two" placeholder="Shared team kit, helpers, locations, screens, borrowing rules"></textarea></label>
+            <label>Stage 3 - reliable local production <textarea name="stage_three" placeholder="Paid jobs, grant evidence, recurring events, standard kits, file archive"></textarea></label>
+            <label>Stage 4 - evolving with the state of the art <textarea name="stage_four" placeholder="AI assistants, proxy workflows, better cameras, live streams, immersive media, training loops"></textarea></label>
+          </fieldset>
+
+          <fieldset>
+            <legend>Operating rules</legend>
+            <div class="field-group">
+              <p>Roadmap focus</p>
+              <div class="option-grid compact" data-checkbox-group="roadmap_focus"></div>
+            </div>
+            <label>Minimum standards <textarea name="standards" placeholder="Audio quality, consent, file names, backups, weather plan, public/private split, review rhythm"></textarea></label>
+            <label>Training rhythm <textarea name="training" placeholder="What people learn, how often, and what is checked before public work"></textarea></label>
+            <label>Triggers to upgrade <textarea name="upgrade_triggers" placeholder="When do we buy, borrow, sponsor, hire, grant-fund or stop?"></textarea></label>
+            <label>Next month actions <textarea name="next_actions" placeholder="Small steps that make this real without pretending the whole system exists yet"></textarea></label>
+          </fieldset>
+
+          <div class="builder-actions">
+            <button class="button primary" type="submit">Update Markdown</button>
+            <button class="button secondary" type="button" data-copy-markdown>Copy Markdown</button>
+            <button class="button secondary" type="button" data-download-markdown>Download upgrade-roadmap.md</button>
+            <button class="button danger" type="button" data-clear-form>Clear</button>
+          </div>
+          <p class="status" data-status aria-live="polite"></p>
+        </form>
+        <aside class="output-panel">
+          <label for="markdownOutput">Generated Markdown</label>
+          <textarea id="markdownOutput" class="markdown-output" spellcheck="false" data-markdown-output></textarea>
+        </aside>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>A roadmap is not a promise. It is a living plan that should update when skills, people, budgets and permissions change.</p>
+    </footer>
+    <script src="app.js"></script>
+    <script src="builder.js"></script>
+  </body>
+</html>
