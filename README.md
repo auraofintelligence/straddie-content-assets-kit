@@ -13,6 +13,7 @@ The project sits beside the Strange but True `.md` family:
 
 - `index.html` - brief guide and link hub
 - `business-profile-builder.html` - export a standalone `business-profile.md`
+- `film-club-builder.html` - export a starter `film-club.md`
 - `asset-list-builder.html` - export an individual `asset-list.md`
 - `shared-assets-builder.html` - export a team `shared-assets.md`
 - `wishlist-builder.html` - export an `equipment-wishlist.md`

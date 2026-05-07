@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en-AU">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Build and export a starter film-club.md file before a dedicated film club repo exists.">
+    <title>Build film-club.md | Straddie Content Assets Kit</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Nunito+Sans:wght@700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <nav class="nav" aria-label="Main navigation">
+        <a class="brand-mark" href="index.html" aria-label="Straddie Content Assets Kit home"><span>Straddie</span><span>Assets</span></a>
+        <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+        <div class="nav-links">
+          <a href="index.html">Guide</a>
+          <a href="business-profile-builder.html">Business</a>
+          <a aria-current="page" href="film-club-builder.html">Film club</a>
+          <a href="asset-list-builder.html">My assets</a>
+          <a href="shared-assets-builder.html">Team assets</a>
+          <a href="wishlist-builder.html">Wish list</a>
+          <a href="upgrade-roadmap-builder.html">Roadmap</a>
+          <a href="source-briefs.html">Briefs</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="page-hero">
+        <p class="eyebrow">Future repo seed</p>
+        <h1>Create film-club.md</h1>
+        <p class="hero-lede">A holding place for the film club lane: people, screenings, skills, locations, assets and questions to answer before making a dedicated repo.</p>
+      </section>
+
+      <section class="section split-section">
+        <div>
+          <p class="eyebrow">Boundary</p>
+          <h2>Plan it here. Do not pretend the repo exists yet.</h2>
+          <p class="page-copy">This file can collect the early film club shape while the work is still inside the Content Assets Kit. When the idea is ready, it can become the seed brief for a future standalone film club repo.</p>
+        </div>
+        <div class="link-stack">
+          <a href="https://auraofintelligence.github.io/strange-but-true/events-media.html">Events & Media context</a>
+          <a href="source-briefs.html">Source film briefs</a>
+          <a href="asset-list-builder.html">Build asset-list.md</a>
+          <a href="shared-assets-builder.html">Build shared-assets.md</a>
+        </div>
+      </section>
+
+      <section class="section builder-layout">
+        <form class="builder-form" data-builder-form data-builder-kind="filmclub">
+          <fieldset>
+            <legend>Club seed</legend>
+            <label>Working name <input name="club_name" placeholder="e.g. Minjerribah Screen Club / Straddie Film Club"></label>
+            <label>Place or reach <input name="place" placeholder="Amity, Dunwich, Point Lookout, island-wide, online"></label>
+            <label>Public doorway link <input name="public_link" placeholder="Events page, profile.md, noticeboard, or leave blank for now"></label>
+            <label>Core purpose <textarea name="purpose" placeholder="What should the film club help people do together?"></textarea></label>
+          </fieldset>
+
+          <fieldset>
+            <legend>Club activity</legend>
+            <div class="field-group">
+              <p>Activity lanes</p>
+              <div class="option-grid compact" data-checkbox-group="filmclub_lanes"></div>
+            </div>
+            <label>People and roles <textarea name="people_roles" placeholder="One per line. Example: organiser | coordinates screenings | needs helpers"></textarea></label>
+            <label>Screenings, workshops or meetups <textarea name="activities" placeholder="Phone film night, outdoor cinema, editing meetup, youth workshop, local shorts Q&A"></textarea></label>
+            <label>Locations and permissions <textarea name="locations" placeholder="Potential venues, townships, outdoor locations, cultural/land/venue permissions, weather notes"></textarea></label>
+            <label>Skills to grow <textarea name="skills" placeholder="Interviewing, audio, filming, editing, storyboarding, AI planning, release forms, file naming"></textarea></label>
+          </fieldset>
+
+          <fieldset>
+            <legend>Assets and next repo questions</legend>
+            <label>Existing assets to connect <textarea name="assets" placeholder="asset-list.md, shared-assets.md, equipment-wishlist.md, public_noticeboard.md, business-profile.md"></textarea></label>
+            <label>Film club wish list <textarea name="wishlist" placeholder="Microphones, tripods, projector, screens, editing laptop, SSDs, training, insurance, venue support"></textarea></label>
+            <label>Public / private boundaries <textarea name="boundaries" placeholder="What can be public? What needs permission? What should not go in a future repo?"></textarea></label>
+            <label>Future repo questions <textarea name="repo_questions" placeholder="Repo name? Public or private? Pages site? Templates? Source files? Example films? Cultural review?"></textarea></label>
+            <label>Next small actions <textarea name="next_actions" placeholder="Small useful steps before making the repo."></textarea></label>
+          </fieldset>
+
+          <div class="builder-actions">
+            <button class="button primary" type="submit">Update Markdown</button>
+            <button class="button secondary" type="button" data-copy-markdown>Copy Markdown</button>
+            <button class="button secondary" type="button" data-download-markdown>Download film-club.md</button>
+            <button class="button danger" type="button" data-clear-form>Clear</button>
+          </div>
+          <p class="status" data-status aria-live="polite"></p>
+        </form>
+        <aside class="output-panel">
+          <label for="markdownOutput">Generated Markdown</label>
+          <textarea id="markdownOutput" class="markdown-output" spellcheck="false" data-markdown-output></textarea>
+        </aside>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Film club planning file only. No dedicated film club repo has been created yet.</p>
+    </footer>
+    <script src="app.js"></script>
+    <script src="builder.js"></script>
+  </body>
+</html>

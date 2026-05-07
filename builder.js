@@ -66,6 +66,18 @@
       ["media_partner", "Media partner"],
       ["training_provider", "Training provider"],
       ["auspice_or_sponsor", "Auspice / sponsor"]
+    ],
+    filmclub_lanes: [
+      ["screenings", "Screenings"],
+      ["phone_filmmaking", "Phone filmmaking"],
+      ["outdoor_cinema", "Outdoor cinema"],
+      ["workshops", "Workshops"],
+      ["youth_pathways", "Youth pathways"],
+      ["location_scouting", "Location scouting"],
+      ["local_stories", "Local stories"],
+      ["ai_assisted_planning", "AI-assisted planning"],
+      ["festival_pipeline", "Festival pipeline"],
+      ["asset_archive", "Asset archive"]
     ]
   };
 
@@ -74,6 +86,11 @@
       storageKey: "straddieBusinessProfile",
       fileName: "business-profile.md",
       build: buildBusinessMarkdown
+    },
+    filmclub: {
+      storageKey: "straddieFilmClubPlan",
+      fileName: "film-club.md",
+      build: buildFilmClubMarkdown
     },
     asset: {
       storageKey: "straddieContentAssetList",
@@ -230,6 +247,7 @@
       "- Profile starter: https://auraofintelligence.github.io/sbt_profile_starter/",
       "- Aura builder: https://auraofintelligence.github.io/sbt_aura_builder/",
       "- Business profile builder: https://auraofintelligence.github.io/straddie-content-assets-kit/business-profile-builder.html",
+      "- Film club builder: https://auraofintelligence.github.io/straddie-content-assets-kit/film-club-builder.html",
       "- Public noticeboard builder: https://auraofintelligence.github.io/straddie-noticeboard-network/public-noticeboard-builder.html",
       "- Grant profile kit: https://auraofintelligence.github.io/stradbroke-grants-lab/profile-kit.html",
       "- Events and media: https://auraofintelligence.github.io/strange-but-true/events-media.html",
@@ -287,6 +305,41 @@
       section("Public Update Rules", state.public_updates || "TODO"),
       section("Private Notes", state.private_notes || "Keep this section out of public pages unless deliberately approved."),
       section("Open Questions", bulletList(lines(state.open_questions))),
+      publicBoundary(),
+      linkedFamily()
+    ].join("\n");
+  }
+
+  function buildFilmClubMarkdown(state) {
+    const clubName = state.club_name || "Example Film Club";
+    const lanes = labelsFor("filmclub_lanes", state.filmclub_lanes || []);
+    return [
+      "---",
+      "schema: film_club_plan.v0",
+      "status: draft_for_human_review",
+      "repo_status: not_created_yet",
+      "club_name: " + yamlScalar(clubName),
+      "place_or_reach: " + yamlScalar(state.place),
+      "public_doorway: " + yamlScalar(state.public_link || "TODO"),
+      "prepared_date: " + yamlScalar(today()),
+      "activity_lanes:",
+      yamlList(lanes, "  "),
+      "---",
+      "",
+      "# Film Club",
+      "",
+      "This is a starter planning file inside the Straddie Content Assets Kit. It can become the seed brief for a future standalone film club repo, but that repo has not been created yet.",
+      "",
+      section("Core Purpose", state.purpose || "TODO"),
+      section("People and Roles", bulletList(lines(state.people_roles))),
+      section("Screenings, Workshops or Meetups", bulletList(lines(state.activities))),
+      section("Locations and Permissions", bulletList(lines(state.locations))),
+      section("Skills to Grow", bulletList(lines(state.skills))),
+      section("Existing Assets to Connect", bulletList(lines(state.assets))),
+      section("Film Club Wish List", bulletList(lines(state.wishlist))),
+      section("Public / Private Boundaries", state.boundaries || "TODO"),
+      section("Future Repo Questions", bulletList(lines(state.repo_questions))),
+      section("Next Small Actions", bulletList(lines(state.next_actions))),
       publicBoundary(),
       linkedFamily()
     ].join("\n");
